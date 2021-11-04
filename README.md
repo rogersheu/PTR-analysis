@@ -37,3 +37,54 @@ Since the Vocus PTR-TOF-MS runs continuously, but experimentation conditions wer
   
 ### Output of Cleaned Data - Summary
 Since starting with multiple 1.6 GB sized data sets containing 2000 ions with ion/second data on a 1 Hz frequency, after a number of transformations, I arrived at the most important 369 ions with parts per billion (ppb) concentration measurements resampled to one data point every ten seconds. In addition to reducing the file size, doing these transformations simplified the data by removing extraneous information. For each experimental trial, I also calculated representative concentrations, which allow us to compare the behavior of these compounds across different experimental conditions (i.e. A/B testing). We also calculated more metrics based on compound identifications, specifically volatility and Henry’s Law Constant, which allowed us to find trends in compound behavior depending on these properties. More details on this procedure and other analyses carried out for the paper will be in the eventual manuscript.
+
+Instructions for PTRanalysis.ipf
+===================
+
+PTR Analysis, written by Roger Sheu, finished 10/31/2021, last updated 10/31/2021
+
+To be used in conjunction with Tofware, by Tofwerk, for Tofwerk products (PTR-TOF-MS)
+
+For converting time series of high-resolution mass peaks to mixing ratios.
+
+Also concatenates waves from multiple files.
+
+--------
+
+Prior to using this ipf, do the following in Tofware:
+
+Run the built-in nontargeted analysis workflow.
+* Define reference spectrum
+* Refine peak shape
+* Mass calibrate
+* In Misc > Corrections, apply TOF duty cycle with m/Q as 37 and include a transmission function (if applicable)
+* In Misc > Settings, make sure you have the right time zone selected.
+* Select Find Peaks (use an m/z range if applicable)
+* [Optional] Edit Peak List / Check Residuals
+* Click Browse TS > Calculate and plot time series for peak list
+
+* IMPORTANT: Go into Data > Save Waves > Save Igor Text...
+  * Navigate to root if you're not already there (just go up in the folders)
+  * Find HDF_fileIDs_#_# (for files with ID of # to #)
+  * Open Intensity_Browser_## and filter by "." (this should return only high-res masses)
+  * Select all of those, then X the filter. While holding the Ctrl button, select t_start.
+  * Press Do It, enter a name for the file, then pick your save location.
+
+While you're at it, find RC code 3702 (if you used the automatic zeroing and calgas function).
+On the Tofwerk panel, UserData > /TpsScriptRegData > Press "Plot Time Series" and then right-click
+on the resulting time series to pull its location up in Data Browser.
+Save that and the t_start_buf to an Igor Text file too.
+
+Import that zeroing information in as well, if applicable.
+
+Now, you have to make a list of key m/Q values. Looking at the HR mass lists for any of the files
+should suffice.  However, there's some code here that might make that easier too.
+
+I'll leave that as an exercise for the reader.
+
+Run get_all_data(). When you're prompted for a path, pick the folder containing your data.
+It's helpful if all your Igor text files are in one folder.
+
+Optional: Decomment the extract_mass_list line. This will help you get a wave containing all the
+masses in your data.
+
