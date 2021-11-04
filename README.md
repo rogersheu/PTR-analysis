@@ -1,5 +1,10 @@
-# high-resolution-MS-analysis
 Extraction, Transformation, and Simplification of High Mass- and Time-Resolution Data
+===========
+
+<p align="center">
+ <img src="https://user-images.githubusercontent.com/78449574/140243686-52b8df4b-93b0-4beb-8df0-e93cbc145402.png" width="600">
+ </p>
+
 
 ### Data Specifics
 
