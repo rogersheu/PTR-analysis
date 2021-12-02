@@ -13,6 +13,21 @@ Install and Requirements
 
 Download this code via ZIP, extract it to your documents, and open it in Igor Pro. You can also clone the repository if you have GitHub experience.
 
+### Publicly Available Figure Examples
+
+<p align="center">
+ <img src="https://user-images.githubusercontent.com/78449574/144360303-b854fcd8-32c3-48ea-912d-e87be2247753.png" width="600">
+ </p>
+
+ 
+Figure 1 from Sheu et al., Human transport of thirdhand tobacco smoke: A prominent source of hazardous air pollutants into indoor nonsmoking environments, 2020, *Science Advances*
+
+<p align="center">
+ <img src="https://user-images.githubusercontent.com/78449574/144360260-91b11b59-8559-47a4-9dc7-018db90863e5.png" width="300">
+ </p>
+ 
+Figure 2C from Sheu et al., Human transport of thirdhand tobacco smoke: A prominent source of hazardous air pollutants into indoor nonsmoking environments, 2020, *Science Advances*
+
 ### Data Specifics
 
 When sampling online with a high-resolution time of flight mass spectrometer (HR-TOF-MS), we acquire three-dimensional data, with time on the x-axis and mass-to-charge ratio (m/z) on the y-axis. Mass-to-charge ratio refers to the mass of the ionized molecule over its charge. For most molecules and ionization schemes, this charge is +1, so the mass ends up being the mass of the parent molecule plus one ([M+H]+). As opposed to hard ionization, where a stream of electrons cause whole-scale fragmentation and ionization of target molecules, in soft ionization, the goal is to gently impart a charge to the target molecule and reduce the likelihood of fragmentation.
